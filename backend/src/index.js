@@ -7,6 +7,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { clerkMiddleware } from '@clerk/express';
+import  { clerkWebhook } from '@clerk/express'
 import job from "./lib/cron.js";
 
 const app = express();
