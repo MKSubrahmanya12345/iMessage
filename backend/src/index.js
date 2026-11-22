@@ -6,7 +6,7 @@ import cors from "cors";
 import fs from 'fs';
 import path from 'path';
 
-import { clerkMiddleware } from '@clerk/express';
+import { clerkMiddleware } from '@clerk/express/webhooks';
 import clerkWebhook from "./webhooks/clerk.webhook.js";
 import job from "./lib/cron.js";
 
