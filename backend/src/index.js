@@ -7,7 +7,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { clerkMiddleware } from '@clerk/express';
-import  { clerkWebhook } from '@clerk/express'
+import clerkWebhook from "./webhooks/clerk.webhook.js";
 import job from "./lib/cron.js";
 
 const app = express();
@@ -30,7 +30,7 @@ app.get("/health", (req, res) => {
 if(fs.existsSync(publicDir)){
     app.use(express.static(publicDir))
 
-    app.get("/{*any}", (res, req, next) => {
+    app.get("/{*any}", (req, res, next) => {
         res.sendFile(path.join(publicDir, "index.html"), (err) => next(err));
     });
 }
